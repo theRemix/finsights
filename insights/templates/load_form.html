@@ -1,0 +1,11 @@
+<form action="/insights/load" method="post">
+  {% csrf_token %}
+  <fieldset>
+    <legend>
+      <h1>Paste in transactions as csv</h1>
+    </legend>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <textarea rows="50" cols="50" name="csv"></textarea>
+  </fieldset>
+  <input type="submit" value="Load Data">
+</form>

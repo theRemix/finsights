@@ -1,0 +1,22 @@
+{%if answer is not None %}
+<h1>Answer</h1>
+<p>
+  {{ answer }}
+</p>
+{% endif %}
+
+
+<div>
+
+  <form action="/insights/query" method="post">
+    {% csrf_token %}
+    <fieldset>
+      <legend>
+        <h1>Ask a question</h1>
+      </legend>
+      {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+      <textarea rows="3" cols="50" name="query">{{ query }}</textarea>
+    </fieldset>
+    <input type="submit" value="Run Query">
+  </form>
+</div>
